@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let users = [];
+        function addUser() {
+            let name = document.getElementById("name").value
+            let email = document.getElementById("email").value
+            let password = document.getElementById("password").value
+            let dob = document.getElementById("dob").value
+            let user = {
+                name:name,
+                email:email,
+                password:password,
+                dob:dob
+            }
+            users.push(user)
+            showLogin();
+        }
+        function chkuser(){
+            let email = document.getElementById("email").value
+            let password = document.getElementById("password").value
+            for (let i=0; i<users.length; i++) {
+                if (users[i].email == email && users[i].password == password)
+            
+
+
+            lrt str=`
+
+            <h2> WELCOME </h2>
+            <button onclick='showLogin()'>Logout</button.
+            `;
+            root.innerHTML=str;
+             
+        }
+        else {
+            msg.innerHTML = "ACCESS DENIED"
+        }
+    } 
+
+        function showForm(){
+            let str = `
+
+            <div>
+                <h1> REGISTRATION FORM </h1>
+                <p> <input type = "text" id = "name" placeholder="Name"></p>
+                <p> <input type =  "text" id = "email" placeholder="email"></p>
+                 <p> <input type =  "text" id = "password" placeholder="password"></p>
+                 <p> <input type =  "text" id = "dob" placeholder="dob"></p>
+                <button onclick='addUser()'> submit </button>
+                <p><button onclick = 'showForm()'></button></p>
+                <p> Already a member?<button onclick='showLogin()'> Login </p>   
+                            
+            `
+
+
+
+
+            root.innerHTML= str
+        }
+        function showLogin() {
+            let str = `
+            <div>
+                <h2> Login Form </h2>
+                <div id='msg'></div>
+                <p><input type="text"></p>
+                <p><input type="password"></p>
+                <button onclick='chkuser()'> Log In </button>
+
+                <p><button onclick = 'showForm()'> Create Account </button></p>
+            </div>    
+              
+            `
+        root.innerHTML = str;
+        }
+    </script>
+</head>
+<body onload="showLogin()">
+    <div id = "root"> </div>
+    
+</body>
+</html>
